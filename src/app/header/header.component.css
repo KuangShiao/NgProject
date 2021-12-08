@@ -1,0 +1,26 @@
+.topbar {
+    position: fixed;
+    width: 100%;
+    background-color: #58799f;
+    height: 70px;
+    box-sizing: border-box;
+    z-index: 100;
+    -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.topbar-menu {
+    float: right;
+    margin: 15px 10px 0 0;
+    list-style-type: none;
+}
+
+.topbar-li {
+    float: right;
+}
+
+.topbar-icon {
+    font-size: 40px;
+    color: white;
+}

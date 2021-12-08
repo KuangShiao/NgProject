@@ -1,0 +1,16 @@
+<p-blockUI [blocked]="isBlocked"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" style="position:absolute;top:48%;left:48%"></i></p-blockUI>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+<div class="container p-grid p-justify-center p-align-center">
+    <form (ngSubmit)="onSubmit()">    
+        <div class="p-col-12">
+            <input pInputText type="text" name="acc" size="50" placeholder="Account" [(ngModel)]="user.acc">
+        </div>
+        <div class="p-col-12">
+            <input pInputText type="password" name="pwd" size="50" placeholder="Password" [(ngModel)]="user.pwd">
+        </div>
+        <div class="p-col-4">
+            <button pButton type="submit" label="Submit"></button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,65 @@
+<header></header>
+
+<div class="layout-sidebar" [ngStyle]="{ 'width': sidebarOpen ? '310px' : '80px' }">
+    <ul class="sidebar-menu">
+        <li *ngFor="let item of sidebarList" class="sidebar-li" [ngClass]="item.active ? 'sidebar-li-active-item' : ''">
+            <a (click)="sidebarEvent(item)">
+                <i class="sidebar-icon {{ item.icon }}"></i>
+            </a>
+        </li>
+    </ul>
+
+    <div *ngIf="tabmenuContent === 'foldeOpen'" class="layout-tabmenu-content" [ngStyle]="{ 'display': sidebarOpen ? 'block' : 'none' }">
+        <div class="layout-submenu-title clearfix">
+            <span>Stock</span>
+            <a class="menu-button" (click)="sidebarEvent()"><i class="pi pi-bars"></i>
+            </a>
+        </div>
+        <div class="layout-submenu-content">
+            <ul class="submenu-menu">
+                <li class="submenu-item-li" (click)="openStatement()">
+                    <a style="color: #545b61">
+                        <i class="submenu-item-icon pi pi-fw pi-home"></i>
+                        <span>個股查詢</span>
+                    </a>
+                </li>
+                <li class="submenu-item-li">
+                    <a style="color: #545b61">
+                        <i class="submenu-item-icon pi pi-fw pi-info-circle"></i>
+                        <span>Documentation</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div *ngIf="tabmenuContent === 'users'" class="layout-tabmenu-content" [ngStyle]="{ 'display': sidebarOpen ? 'block' : 'none' }">
+        <div class="layout-submenu-title clearfix">
+            <span>Team</span>
+            <a class="menu-button" (click)="sidebarEvent()"><i class="pi pi-bars"></i>
+            </a>
+        </div>
+        <div class="layout-submenu-content">
+            <ul class="submenu-menu">
+                <li class="submenu-item-li">
+                    <a style="color: #545b61">
+                        <i class="submenu-item-icon pi pi-shopping-cart"></i>
+                        <span>Buy Now</span>
+                    </a>
+                </li>
+                <li class="submenu-item-li">
+                    <a style="color: #545b61">
+                        <i class="submenu-item-icon pi pi-fw pi-briefcase"></i>
+                        <span>Pages</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="layout-main" [ngStyle]="{ 'left': sidebarOpen ? '323px' : '93px' }">
+
+    <stock-info-query *ngIf="mainContent === 'stockInfoQuery'"></stock-info-query>
+
+</div>

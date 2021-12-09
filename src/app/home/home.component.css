@@ -27,7 +27,8 @@
 
 .sidebar-icon {
     font-size: 40px;
-    color: #999999
+    color: #999999;
+    cursor: pointer;
 }
 
 /* ----------------------------------------- */

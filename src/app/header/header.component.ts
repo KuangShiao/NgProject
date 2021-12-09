@@ -13,12 +13,18 @@ export class HeaderComponent implements OnInit {
 
     isBlocked = false;
 
+    topBarMenuVisible = false;
+
     constructor(private service: ApiService, private messageService: MessageService) {
         
     }
 
     ngOnInit() {
         console.log('header.component.ts ngOnInit()');
+    }
+
+    showTopbarMenu() {
+        this.topBarMenuVisible = !this.topBarMenuVisible;
     }
 
 }

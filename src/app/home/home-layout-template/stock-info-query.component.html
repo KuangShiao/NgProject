@@ -1,5 +1,7 @@
 <!-- 個股查詢 -->
 <p-blockUI [blocked]="isBlocked"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" style="position:absolute;top:48%;left:48%"></i></p-blockUI>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+
 <div class="p-grid">
     <div class="p-col-2">
         <input pInputText type="text" placeholder="輸入台股代號名稱" [(ngModel)]="condition.stockNoName" (keyup.enter)="stockInfoQuery()">

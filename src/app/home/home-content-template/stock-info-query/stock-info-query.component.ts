@@ -17,12 +17,11 @@ export class StockInfoQueryComponent implements OnInit {
 
     stockList = [];
 
-    constructor(private service: ApiService, private messageService: MessageService) {
+    constructor( private service: ApiService, private messageService: MessageService ) {
         
     }
 
     ngOnInit() {
-        console.log('stock-info-query.component.ts ngOnInit()');
         // init industryOpts
         this.initIndustryOpts();
     }
@@ -30,24 +29,24 @@ export class StockInfoQueryComponent implements OnInit {
     
     stockInfoQuery() {
 
-        console.log('condition: ', this.condition);
+        console.log( 'condition: ', this.condition );
         this.stockList = [];
         this.isBlocked = true;
-        this.service.callApiService('findStockInfo', this.condition).subscribe(
+        this.service.callApiService( 'findStockInfo', this.condition ).subscribe(
             result => {
-                console.log(result);
-                if (result.check) {
+                console.log( result );
+                if ( result.check ) {
                     this.stockList = result.data
                 }
                 else {
-                    console.log(result.msg);
-                    this.messageService.add({ severity: 'error', summary: '錯誤', detail: result.msg });
+                    console.log( result.msg );
+                    this.messageService.add( { severity: 'error', summary: '錯誤', detail: result.msg } );
                 }
                 this.isBlocked = false;
             },
             error => {
-                console.log(error);
-                this.messageService.add({ severity: 'error', summary: '錯誤', detail: error });
+                console.log( error );
+                this.messageService.add( { severity: 'error', summary: '錯誤', detail: error } );
                 this.isBlocked = false;
             }
         );
@@ -58,24 +57,24 @@ export class StockInfoQueryComponent implements OnInit {
 
         this.industryOpts = [];
         this.isBlocked = true;
-        this.service.callApiService('findAllIndustryConfig', {}).subscribe(
+        this.service.callApiService( 'findAllIndustryConfig', {} ).subscribe(
             result => {
                 console.log(result);
-                if (result.check) {
-                    this.industryOpts.push({ label: '全部', value: '' });
-                    for (const item of result.data) {
-                        this.industryOpts.push({ label: item.industryName, value: item.industryNo });
+                if ( result.check ) {
+                    this.industryOpts.push( { label: '全部', value: '' } );
+                    for ( const item of result.data ) {
+                        this.industryOpts.push( { label: item.industryName, value: item.industryNo } );
                     }
                 }
                 else {
-                    console.log(result.msg);
-                    this.messageService.add({ severity: 'error', summary: '錯誤', detail: result.msg });
+                    console.log( result.msg );
+                    this.messageService.add( { severity: 'error', summary: '錯誤', detail: result.msg } );
                 }
                 this.isBlocked = false;
             },
             error => {
-                console.log(error);
-                this.messageService.add({ severity: 'error', summary: '錯誤', detail: error });
+                console.log( error );
+                this.messageService.add( { severity: 'error', summary: '錯誤', detail: error }) ;
                 this.isBlocked = false;
             }
         );

@@ -24,6 +24,7 @@
 .topbar-li {
     float: right;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .topbar-icon {
@@ -75,10 +76,11 @@
         padding-left: 15px;
     }
     .topbar-li:hover {
-        background-color: #f4f4f4
+        background-color: #f4f4f4;
     }
     .topbar-icon {
         vertical-align: middle;
+        font-size: 27px;
     }
     .topbar-item-name {
         display: inline-block;

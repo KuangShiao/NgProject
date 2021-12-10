@@ -15,15 +15,17 @@ import { DropdownModule}  from 'primeng/dropdown';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent }  from './header/header.component';
+import { HomeSidebarComponent } from './home/home-sidebar/home-sidebar.component';
 import { HomeComponent } from './home/home.component';
 // home layout template
-import { StockInfoQueryComponent } from './home/home-layout-template/stock-info-query.component';
+import { StockInfoQueryComponent } from './home/home-content-template/stock-info-query/stock-info-query.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
+    HomeSidebarComponent,
     HomeComponent,
     StockInfoQueryComponent
   ],

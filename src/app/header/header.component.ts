@@ -1,30 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/utils/api.service';
-import { MessageService } from 'primeng/api';
-import { Constants } from '../utils/constants';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
     selector: 'header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.css'],
-    providers: [MessageService]
+    providers: []
 })
 export class HeaderComponent implements OnInit {
 
-    isBlocked = false;
-
     topBarMenuVisible = false;
 
-    constructor(private service: ApiService, private messageService: MessageService) {
+    constructor() {
         
     }
 
     ngOnInit() {
-        console.log('header.component.ts ngOnInit()');
     }
 
     showTopbarMenu() {
         this.topBarMenuVisible = !this.topBarMenuVisible;
+    }
+
+    @HostListener( 'document:click', ['$event'] )
+    clickout( event: any ) {
+        if ( event.target.className !== 'topbar-li' && event.target.className !== 'topbar-menu-button pi pi-bars' ) {
+            if ( this.topBarMenuVisible ) {
+                this.topBarMenuVisible = false;
+            }
+        }
     }
 
 }

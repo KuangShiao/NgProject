@@ -31,6 +31,7 @@ export class StockInfoQueryComponent implements OnInit {
 
         console.log( 'condition: ', this.condition );
         this.stockList = [];
+        // this.stockList.push({ closePrice: 123, stockName: 'test', stockNo: '2303', industryName: '造紙', marketNo: 'TWSE' });
         this.isBlocked = true;
         this.service.callApiService( 'findStockInfo', this.condition ).subscribe(
             result => {

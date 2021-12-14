@@ -9,3 +9,17 @@
     bottom: 10px;
     overflow: auto;
 }
+
+.sidebar-open {
+    left: 323px;
+}
+
+.sidebar-close {
+    left: 93px;
+}
+
+@media screen and (max-width: 1080px) {
+    .sidebar-open {
+        left: 93px;
+    }
+}

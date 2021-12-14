@@ -2,6 +2,6 @@
 
 <home-sidebar [(sidebarOpen)]="sidebarOpen" [(mainContent)]="mainContent"></home-sidebar>
 
-<div class="layout-main" [ngStyle]="{ 'left': sidebarOpen ? '323px' : '93px' }">
+<div class="layout-main" [ngClass]="sidebarOpen ? 'sidebar-open' : 'sidebar-close'">
     <stock-info-query *ngIf="mainContent === 'stockInfoQuery'"></stock-info-query>
 </div>

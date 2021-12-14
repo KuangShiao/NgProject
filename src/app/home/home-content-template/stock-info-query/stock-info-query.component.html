@@ -3,20 +3,20 @@
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
 
 <div class="p-grid">
-    <div class="p-col-2">
+    <div style="margin: 10px">
         <input pInputText type="text" placeholder="輸入台股代號名稱" [(ngModel)]="condition.stockNoName" (keyup.enter)="stockInfoQuery()">
     </div>
-    <div class="p-col-2">
+    <div style="margin: 10px">
         <p-dropdown [options]="industryOpts" [(ngModel)]="condition.industryNo" placeholder="產業別" [virtualScroll]="true" [itemSize]="10" [filter]="false"></p-dropdown>
     </div>
-    <div class="p-col-2">
+    <div style="margin: 10px">
         <p-button icon="fa fa-search" label="查詢" (click)="stockInfoQuery()"></p-button>
     </div>
 </div>
 
 <p-table [value]="stockList" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10,20,50]">
     <ng-template pTemplate="header">
-        <tr>
+        <tr class="table-header-tr">
             <th pSortableColumn="closePrice">目前股價 <p-sortIcon field="closePrice"></p-sortIcon></th>
             <th pSortableColumn="stockNo">股票名稱/代號 <p-sortIcon field="stockNo"></p-sortIcon></th>
             <th>產業別</th>
@@ -25,12 +25,12 @@
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-stock>
-        <tr>
-            <td>{{stock.closePrice}}</td>
-            <td>{{stock.stockName}} / {{stock.stockNo}}</td>
-            <td>{{stock.industryName}}</td>
-            <td>{{stock.marketNo == 'TWSE' ? '上市' : stock.marketNo == 'TPEX' ? '上櫃' : ''}}</td>
-            <td>{{stock.listingDate | date: 'yyyy/MM/dd'}}</td>
+        <tr class="table-body-tr">
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">目前股價 </span>{{stock.closePrice}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">股票名稱/代號 </span>{{stock.stockName}} / {{stock.stockNo}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">產業別 </span>{{stock.industryName}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">市場別 </span>{{stock.marketNo == 'TWSE' ? '上市' : stock.marketNo == 'TPEX' ? '上櫃' : ''}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">上市日期 </span>{{stock.listingDate | date: 'yyyy/MM/dd'}}</td>
         </tr>
     </ng-template>
 </p-table>

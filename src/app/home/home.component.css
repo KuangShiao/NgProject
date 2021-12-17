@@ -4,22 +4,22 @@
     border-radius: 2px;
     padding: 16px;
     position: fixed;
-    top: 80px;
+    top: 50px;
     right: 10px;
     bottom: 10px;
     overflow: auto;
 }
 
 .sidebar-open {
-    left: 323px;
+    left: 283px;
 }
 
 .sidebar-close {
-    left: 93px;
+    left: 83px;
 }
 
 @media screen and (max-width: 1080px) {
     .sidebar-open {
-        left: 93px;
+        left: 83px;
     }
 }

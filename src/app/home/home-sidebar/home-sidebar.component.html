@@ -1,4 +1,4 @@
-<div class="layout-sidebar" [ngStyle]="{ 'width': sidebarOpen ? '270px' : '70px' }">
+<div class="layout-sidebar" [ngClass]="sidebarOpen ? 'layout-sidebar-open' : 'layout-sidebar-close'">
     <ul class="sidebar-menu">
         <li *ngFor="let item of sidebarList" class="sidebar-li" [ngClass]="item.active ? 'sidebar-li-active-item' : ''">
             <a (click)="sidebarEvent(item)">
@@ -7,10 +7,10 @@
         </li>
     </ul>
 
-    <div *ngIf="tabmenuContent === 'foldeOpen'" class="layout-tabmenu-content" [ngStyle]="{ 'display': sidebarOpen ? 'block' : 'none' }">
+    <div *ngIf="tabmenuContent === 'stock'" class="layout-tabmenu-content" [ngStyle]="{ 'display': sidebarOpen ? 'block' : 'none' }">
         <div class="layout-submenu-title clearfix">
-            <span>Stock</span>
-            <a class="menu-button" (click)="sidebarEvent()"><i class="pi pi-bars"></i>
+            <span>股票</span>
+            <a class="menu-button" (click)="sidebarEvent()"><i class="pi pi-bars" style="font-size: 27px;"></i>
             </a>
         </div>
         <div class="layout-submenu-content">
@@ -34,7 +34,7 @@
     <div *ngIf="tabmenuContent === 'users'" class="layout-tabmenu-content" [ngStyle]="{ 'display': sidebarOpen ? 'block' : 'none' }">
         <div class="layout-submenu-title clearfix">
             <span>Team</span>
-            <a class="menu-button" (click)="sidebarEvent()"><i class="pi pi-bars"></i>
+            <a class="menu-button" (click)="sidebarEvent()"><i class="pi pi-bars" style="font-size: 27px;"></i>
             </a>
         </div>
         <div class="layout-submenu-content">

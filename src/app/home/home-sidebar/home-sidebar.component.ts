@@ -34,7 +34,7 @@ export class HomeSidebarComponent implements OnInit {
     @Output()
     mainContentChange = new EventEmitter<string>();
 
-    sidebarList: SidebarItem[] = [ { name: 'foldeOpen', icon: 'pi pi-folder-open', active: false }, 
+    sidebarList: SidebarItem[] = [ { name: 'stock', icon: 'fa fa-line-chart', active: false }, 
                                    { name: 'users', icon: 'pi pi-users', active: false }
                                 ];
     tabmenuContent = '';
@@ -70,6 +70,7 @@ export class HomeSidebarComponent implements OnInit {
     openStatement() {
         console.log( 'home-sidebar.component.ts openStatement()' );
         this.mainContent = 'stockInfoQuery';
+        this.sidebarEvent();     // close sidebar
     }
 
     @HostListener( 'document:click', ['$event'] )

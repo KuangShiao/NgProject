@@ -8,6 +8,14 @@
     box-shadow: 3px 0px 10px 0 rgb(0 0 0 / 20%);
 }
 
+.layout-sidebar-open {
+    width: 270px;
+}
+
+.layout-sidebar-close {
+    width: 70px;
+}
+
 .sidebar-menu {
     list-style-type: none; 
     padding: 0;
@@ -36,15 +44,15 @@
     position: absolute;
    /* display: block;*/
     left: 70px;
-    margin-top: -86px;
+    margin-top: -85px;
     background-color: #ebebee;
     height: 100%;
 }
 
 .layout-submenu-title {
-    padding: 10px 12px;
-    height: 43px;
-    font-size: 20px;
+    padding: 8px 12px;
+    height: 42px;
+    font-size: 19px;
     border-bottom: 2px solid #c7c7c7;
     width: 200px;
 }
@@ -80,4 +88,29 @@
     margin-right: 4px;
     color: gray;
     vertical-align: text-bottom;
+}
+
+@media screen and (max-width: 720px) {
+    .layout-sidebar-open {
+        width: 240px;
+    }
+    .layout-sidebar-close {
+        width: 40px;
+    }    
+    .sidebar-li {
+        width: 40px;
+    }
+    .sidebar-icon {
+        font-size: 30px;
+    }
+    .layout-tabmenu-content {
+        left: 40px;
+        margin-top: -66px;
+        height: 100%;
+    }
+    .layout-submenu-title {
+        padding: 2px 12px;
+        height: 32px;
+        font-size: 17px;
+    }
 }

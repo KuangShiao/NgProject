@@ -23,3 +23,11 @@
         left: 83px;
     }
 }
+@media screen and (max-width: 720px) {
+    .sidebar-close {
+        left: 53px;
+    }
+    .sidebar-open {
+        left: 53px;
+    }
+}

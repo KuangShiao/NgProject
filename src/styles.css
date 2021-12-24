@@ -8,10 +8,6 @@ a {
     color: #2d353c !important;
 }
 
-.container {
-    height: calc(100vh - 8px);
-}
-
 .clearfix::after {
     content: "";
     clear: both;

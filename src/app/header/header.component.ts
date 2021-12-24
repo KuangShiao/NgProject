@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Constants } from '../utils/constants';
 
 @Component({
     selector: 'header',
@@ -9,12 +10,13 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
     topBarMenuVisible = false;
+    userId = '';
 
     constructor() {
-        
     }
 
     ngOnInit() {
+        this.userId = localStorage.getItem(Constants.LocalStorageKey.LOCAL_STORAGE_USER_ID_KEY);
     }
 
     showTopbarMenu() {

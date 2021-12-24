@@ -9,7 +9,7 @@ import { Vo } from 'src/app/entity/vo';
 })
 export class ApiService {
 
-  serverUrl = "http://192.168.1.101:8080/";
+  serverUrl = "https://kuangmainservice.azurewebsites.net/";
 
   httpOptions = {
     headers: new HttpHeaders({

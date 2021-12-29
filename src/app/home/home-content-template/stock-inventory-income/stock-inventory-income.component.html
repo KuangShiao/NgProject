@@ -1,0 +1,51 @@
+<p-blockUI [blocked]="isBlocked"><i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw" style="position:absolute;top:48.5%;left:48.5%"></i></p-blockUI>
+
+<div class="p-grid">
+    <div style="margin: 10px">
+        <p-button icon="fa fa-hand-o-down" label="下單" (click)="displayDialog = true"></p-button>
+    </div>
+</div>
+
+<div class="clearfix">未實現總損益: <span [ngStyle]="{ 'color': totalProfitLoss >= 0 ? 'red' : 'green'}">{{totalProfitLoss}}</span>
+    <span style="float:right;">截至: {{currentDate | date:'yyyy/MM/dd'}}</span>
+</div>
+<p-table [value]="inventoryIncomeList" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10,20,50]">
+    <ng-template pTemplate="header">
+        <tr class="table-header-tr">
+            <th>目前股價</th>
+            <th>股票名稱/代號</th>
+            <th>張數</th>
+            <th>成交均價</th>
+            <th>投資成本</th>
+            <th>帳面收入</th>
+            <th>損益</th>
+            <th>損益率</th>
+            <th>損益平衡價</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ii>
+        <tr class="table-body-tr">
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">目前股價 </span>{{ii.closePrice}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">股票名稱/代號 </span>{{ii.stockName}} / {{ii.stockNo}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">張數 </span>{{ii.stockNum}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">成交均價 </span>{{ii.avgPrice}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">投資成本 </span>{{ii.investmentCost}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">帳面收入 </span>{{ii.income}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">損益 </span>{{ii.profitLoss}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">損益率 </span>{{ii.profitLossRate}}</td>
+            <td class="table-body-tr-td"><span class="table-body-tr-td-title">損益平衡價 </span>{{ii.balancePrice}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Godfather I" [(visible)]="displayDialog" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" [baseZIndex]="10000">
+    <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding. 
+        His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. 
+        Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, 
+        kind and benevolent to those who give respect,
+        but given to ruthless violence whenever anything stands against the good of the family.</p>
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="displayDialog=false" label="Yes"></button>
+            <button type="button" pButton icon="pi pi-close" (click)="displayDialog=false" label="No" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>

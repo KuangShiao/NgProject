@@ -10,7 +10,8 @@ import { ButtonModule } from 'primeng/button';
 import { BlockUIModule } from 'primeng/blockui';
 import { ToastModule }  from 'primeng/toast';
 import { TableModule } from 'primeng/table';
-import { DropdownModule}  from 'primeng/dropdown';
+import { DropdownModule }  from 'primeng/dropdown';
+import { DialogModule } from 'primeng/dialog';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +20,7 @@ import { HomeSidebarComponent } from './home/home-sidebar/home-sidebar.component
 import { HomeComponent } from './home/home.component';
 // home layout template
 import { StockInfoQueryComponent } from './home/home-content-template/stock-info-query/stock-info-query.component';
+import { StockInventoryIncomeComponent } from './home/home-content-template/stock-inventory-income/stock-inventory-income.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { StockInfoQueryComponent } from './home/home-content-template/stock-info
     HeaderComponent,
     HomeSidebarComponent,
     HomeComponent,
-    StockInfoQueryComponent
+    StockInfoQueryComponent,
+    StockInventoryIncomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +42,10 @@ import { StockInfoQueryComponent } from './home/home-content-template/stock-info
     InputTextModule,
     ButtonModule,
     BlockUIModule,
-	  ToastModule,
+	ToastModule,
     TableModule,
-    DropdownModule
+    DropdownModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [

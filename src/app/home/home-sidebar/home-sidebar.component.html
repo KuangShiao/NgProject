@@ -15,16 +15,16 @@
         </div>
         <div class="layout-submenu-content">
             <ul class="submenu-menu">
-                <li class="submenu-item-li" (click)="openStatement()">
+                <li class="submenu-item-li" (click)="setMainContent('stockInfoQuery')">
                     <a style="color: #545b61">
-                        <i class="submenu-item-icon pi pi-fw pi-home"></i>
+                        <i class="submenu-item-icon fa fa-search"></i>
                         <span>個股查詢</span>
                     </a>
                 </li>
                 <li class="submenu-item-li">
-                    <a style="color: #545b61">
-                        <i class="submenu-item-icon pi pi-fw pi-info-circle"></i>
-                        <span>Documentation</span>
+                    <a style="color: #545b61" (click)="setMainContent('stockInventoryIncome')">
+                        <i class="submenu-item-icon fa fa-book"></i>
+                        <span>庫存及未實現損益</span>
                     </a>
                 </li>
             </ul>

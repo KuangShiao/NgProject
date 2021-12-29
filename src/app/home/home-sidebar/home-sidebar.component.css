@@ -86,8 +86,8 @@
 
 .submenu-item-icon {
     margin-right: 4px;
+    margin-left: 4px;
     color: gray;
-    vertical-align: text-bottom;
 }
 
 @media screen and (max-width: 720px) {

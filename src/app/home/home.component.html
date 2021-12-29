@@ -4,4 +4,5 @@
 
 <div class="layout-main" [ngClass]="sidebarOpen ? 'sidebar-open' : 'sidebar-close'">
     <stock-info-query *ngIf="mainContent === 'stockInfoQuery'"></stock-info-query>
+    <stock-inventory-income *ngIf="mainContent === 'stockInventoryIncome'"></stock-inventory-income>
 </div>

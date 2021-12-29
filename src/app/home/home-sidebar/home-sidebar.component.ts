@@ -67,9 +67,9 @@ export class HomeSidebarComponent implements OnInit {
         }
     }
 
-    openStatement() {
-        console.log( 'home-sidebar.component.ts openStatement()' );
-        this.mainContent = 'stockInfoQuery';
+    setMainContent(s: string) {
+        console.log( 'setMainContent: ', s );
+        this.mainContent = s;
         this.sidebarEvent();     // close sidebar
     }
 

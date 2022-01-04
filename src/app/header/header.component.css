@@ -66,17 +66,17 @@
     }
     .topbar-menu-box {
         margin: 50px -35px 0 0;
-        background-color: #ebebee;
+        background-color: #efefef;
         width: 190px;
     }
     .topbar-li {
         float: none;
         margin-left: -40px;
-        width: 131%;
+        width: 126.5%;
         padding-left: 15px;
     }
     .topbar-li:hover {
-        background-color: #f4f4f4;
+        background-color: #e5e5e5;
     }
     .topbar-icon {
         vertical-align: middle;

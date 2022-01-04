@@ -12,6 +12,8 @@ import { ToastModule }  from 'primeng/toast';
 import { TableModule } from 'primeng/table';
 import { DropdownModule }  from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
+import { SpinnerModule } from 'primeng/spinner';
+import { KeyFilterModule } from 'primeng/keyfilter';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -42,10 +44,12 @@ import { StockInventoryIncomeComponent } from './home/home-content-template/stoc
     InputTextModule,
     ButtonModule,
     BlockUIModule,
-	ToastModule,
+	  ToastModule,
     TableModule,
     DropdownModule,
-    DialogModule
+    DialogModule,
+    SpinnerModule,
+    KeyFilterModule
   ],
   providers: [],
   bootstrap: [

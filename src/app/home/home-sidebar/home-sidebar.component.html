@@ -1,7 +1,7 @@
 <div class="layout-sidebar" [ngClass]="sidebarOpen ? 'layout-sidebar-open' : 'layout-sidebar-close'">
     <ul class="sidebar-menu">
-        <li *ngFor="let item of sidebarList" class="sidebar-li" [ngClass]="item.active ? 'sidebar-li-active-item' : ''">
-            <a (click)="sidebarEvent(item)">
+        <li *ngFor="let item of sidebarList" [ngClass]="item.active ? 'sidebar-li-active-item' : ''">
+            <a class="sidebar-a" (click)="sidebarEvent(item)">
                 <i class="sidebar-icon {{ item.icon }}"></i>
             </a>
         </li>
@@ -21,8 +21,8 @@
                         <span>個股查詢</span>
                     </a>
                 </li>
-                <li class="submenu-item-li">
-                    <a style="color: #545b61" (click)="setMainContent('stockInventoryIncome')">
+                <li class="submenu-item-li" (click)="setMainContent('stockInventoryIncome')">
+                    <a style="color: #545b61">
                         <i class="submenu-item-icon fa fa-book"></i>
                         <span>庫存及未實現損益</span>
                     </a>

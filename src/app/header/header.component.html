@@ -1,10 +1,10 @@
 <div class="topbar clearfix">
 
-    <a *ngIf="userId" (click)="showTopbarMenu()">
+    <a *ngIf="getUserId()" (click)="showTopbarMenu()">
         <i class="topbar-menu-button pi pi-bars"></i>
     </a>
 
-    <ul *ngIf="userId"
+    <ul *ngIf="getUserId()"
         [ngClass]="topBarMenuVisible ? 'topbar-menu-box fadeInDown animated' : 'topbar-menu'">
         <li class="topbar-li">
             <a href="#">

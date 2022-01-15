@@ -5,8 +5,7 @@ import { MessageService, SelectItem } from 'primeng/api';
 @Component({
     selector: 'stock-inventory-income',
     templateUrl: './stock-inventory-income.component.html',
-    styleUrls: ['./stock-inventory-income.component.css'],
-    providers: [MessageService ]
+    styleUrls: ['./stock-inventory-income.component.css']
 })
 export class StockInventoryIncomeComponent implements OnInit {
 

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -14,9 +15,12 @@ import { DropdownModule }  from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
 import { SpinnerModule } from 'primeng/spinner';
 import { KeyFilterModule } from 'primeng/keyfilter';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { HeaderComponent }  from './header/header.component';
 import { HomeSidebarComponent } from './home/home-sidebar/home-sidebar.component';
 import { HomeComponent } from './home/home.component';
@@ -24,10 +28,13 @@ import { HomeComponent } from './home/home.component';
 import { StockInfoQueryComponent } from './home/home-content-template/stock-info-query/stock-info-query.component';
 import { StockInventoryIncomeComponent } from './home/home-content-template/stock-inventory-income/stock-inventory-income.component';
 
+import { MessageService } from 'primeng/api';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterComponent,
     HeaderComponent,
     HomeSidebarComponent,
     HomeComponent,
@@ -40,6 +47,7 @@ import { StockInventoryIncomeComponent } from './home/home-content-template/stoc
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
 
     InputTextModule,
     ButtonModule,
@@ -49,9 +57,13 @@ import { StockInventoryIncomeComponent } from './home/home-content-template/stoc
     DropdownModule,
     DialogModule,
     SpinnerModule,
-    KeyFilterModule
+    KeyFilterModule,
+    MessagesModule,
+    MessageModule
   ],
-  providers: [],
+  providers: [
+    MessageService
+  ],
   bootstrap: [
     AppComponent
   ]

@@ -5,8 +5,7 @@ import { MessageService, SelectItem } from 'primeng/api';
 @Component({
     selector: 'stock-info-query',
     templateUrl: './stock-info-query.component.html',
-    styleUrls: ['./stock-info-query.component.css'],
-    providers: [MessageService]
+    styleUrls: ['./stock-info-query.component.css']
 })
 export class StockInfoQueryComponent implements OnInit {
 

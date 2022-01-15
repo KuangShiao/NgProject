@@ -6,13 +6,16 @@
 <div class="container p-grid p-justify-center p-align-center">
     <form (ngSubmit)="onSubmit()">    
         <div class="p-col-12">
-            <input pInputText type="text" name="acc" size="25" placeholder="Account" [(ngModel)]="user.acc">
+            <input pInputText type="text" name="acc" size="25" placeholder="帳號" [(ngModel)]="user.acc">
         </div>
         <div class="p-col-12">
-            <input pInputText type="password" name="pwd" size="25" placeholder="Password" [(ngModel)]="user.pwd">
+            <input pInputText type="password" name="pwd" size="25" placeholder="密碼" [(ngModel)]="user.pwd">
+        </div>
+        <div class="p-col-12">
+            <button pButton type="submit" style="width: 100%;" label="登入"></button>
         </div>
         <div class="p-col-4">
-            <button pButton type="submit" label="Submit"></button>
+            <a [routerLink]="['/register']">註冊</a>
         </div>
     </form>
 </div>

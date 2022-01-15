@@ -1,0 +1,55 @@
+<p-blockUI [blocked]="isBlocked"><i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw" style="position:absolute;top:48.5%;left:48.5%"></i></p-blockUI>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+<header></header>
+
+<div class="container p-grid p-justify-center p-align-center">
+    <form [formGroup]="registerForm" style="width: 325px;">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4">
+                *帳號:
+            </div>
+            <div class="ui-grid-col-8">
+                <input pInputText type="text" size="25" formControlName="acc">
+            </div>
+        </div>
+        <div class="ui-grid-row" style="margin: 10px 0px">
+            <div class="ui-grid-col-4">
+                *密碼:
+            </div>
+            <div class="ui-grid-col-8">
+                <input pInputText type="password" size="25" formControlName="pwd">
+            </div>
+        </div>
+        <div class="ui-grid-row" style="margin: 10px 0px">
+            <div class="ui-grid-col-4">
+                *確認密碼:
+            </div>
+            <div class="ui-grid-col-8">
+                <input pInputText type="password" size="25" formControlName="cfmPwd">
+            </div>
+        </div>
+        <div class="ui-grid-row" style="margin: 10px 0px">
+            <div class="ui-grid-col-4">
+                *名稱:
+            </div>
+            <div class="ui-grid-col-8">
+                <input pInputText type="text" size="25" formControlName="name">
+            </div>
+        </div>
+        <div class="ui-grid-row" style="margin: 10px 0px">
+            <div class="ui-grid-col-4">
+                &nbsp;
+            </div>
+            <div class="ui-grid-col-8">
+                <button pButton style="width: 100%;" label="註冊" [disabled]="registerForm.invalid" (click)="onRegister()"></button>
+            </div>
+        </div>
+        <div class="ui-grid-row">
+            <p-message severity="error" text="帳號必填" *ngIf="registerForm.controls['acc'].invalid && registerForm.controls['acc'].touched"></p-message>
+            <p-message severity="error" text="密碼必填" *ngIf="registerForm.controls['pwd'].invalid && registerForm.controls['pwd'].touched"></p-message>
+            <p-message severity="error" text="確認密碼不同" *ngIf="registerForm.controls['cfmPwd'].hasError('notEquivalent') && registerForm.controls['cfmPwd'].touched"></p-message>
+            <p-message severity="error" text="名稱必填" *ngIf="registerForm.controls['name'].invalid && registerForm.controls['name'].touched"></p-message>
+        </div>
+    </form>
+</div>

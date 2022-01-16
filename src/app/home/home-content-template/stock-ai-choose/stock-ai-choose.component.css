@@ -1,0 +1,19 @@
+.table-body-tr-td-title {
+    display: none;
+}
+@media screen and (max-width: 720px) {
+    .table-header-tr {
+        display: none;
+    }
+    .table-body-tr {
+        border-bottom: 1px solid #c8c8c8;
+    }
+    .table-body-tr-td {
+        display: block;
+        border: 0 !important;
+    }
+    .table-body-tr-td-title {
+        display: inline-block;
+        width: 50%;
+    }
+}

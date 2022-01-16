@@ -4,7 +4,7 @@
 <header></header>
 
 <div class="container p-grid p-justify-center p-align-center">
-    <form [formGroup]="registerForm" style="width: 325px;">
+    <div [formGroup]="registerForm" style="width: 325px;">
         <div class="ui-grid-row">
             <div class="ui-grid-col-4">
                 *帳號:
@@ -51,5 +51,5 @@
             <p-message severity="error" text="確認密碼不同" *ngIf="registerForm.controls['cfmPwd'].hasError('notEquivalent') && registerForm.controls['cfmPwd'].touched"></p-message>
             <p-message severity="error" text="名稱必填" *ngIf="registerForm.controls['name'].invalid && registerForm.controls['name'].touched"></p-message>
         </div>
-    </form>
+    </div>
 </div>

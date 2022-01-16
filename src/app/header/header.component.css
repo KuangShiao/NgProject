@@ -57,6 +57,16 @@
     display: none;
 }
 
+/* ::ng-deep .cTooltip {
+    top: 50px !important;
+}
+::ng-deep .ui-tooltip-arrow {
+    border-bottom-color: gray !important;
+}
+::ng-deep .ui-tooltip-text {
+    background-color: gray !important;
+} */
+
 @media screen and (max-width: 1080px) {
     .topbar-menu-button {
         display: block;

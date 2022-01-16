@@ -27,10 +27,8 @@ export class StockInfoQueryComponent implements OnInit {
 
     
     stockInfoQuery() {
-
         console.log( 'condition: ', this.condition );
         this.stockList = [];
-        // this.stockList.push({ closePrice: 123, stockName: 'test', stockNo: '2303', industryName: '造紙', marketNo: 'TWSE' });
         this.isBlocked = true;
         this.service.callApiService( 'findStockInfo', this.condition ).subscribe(
             result => {
@@ -40,17 +38,16 @@ export class StockInfoQueryComponent implements OnInit {
                 }
                 else {
                     console.log( result.msg );
-                    this.messageService.add( { severity: 'error', summary: '錯誤', detail: result.msg } );
+                    this.messageService.add({ severity: 'error', summary: '錯誤', detail: result.msg });
                 }
                 this.isBlocked = false;
             },
             error => {
                 console.log( error );
-                this.messageService.add( { severity: 'error', summary: '錯誤', detail: error } );
+                this.messageService.add({ severity: 'error', summary: '錯誤', detail: error });
                 this.isBlocked = false;
             }
         );
-        
     }
 
     initIndustryOpts() {
@@ -59,22 +56,22 @@ export class StockInfoQueryComponent implements OnInit {
         this.isBlocked = true;
         this.service.callApiService( 'findAllIndustryConfig', {} ).subscribe(
             result => {
-                console.log(result);
+                console.log( result );
                 if ( result.check ) {
-                    this.industryOpts.push( { label: '全部', value: '' } );
+                    this.industryOpts.push({ label: '全部', value: '' });
                     for ( const item of result.data ) {
-                        this.industryOpts.push( { label: item.industryName, value: item.industryNo } );
+                        this.industryOpts.push({ label: item.industryName, value: item.industryNo });
                     }
                 }
                 else {
                     console.log( result.msg );
-                    this.messageService.add( { severity: 'error', summary: '錯誤', detail: result.msg } );
+                    this.messageService.add({ severity: 'error', summary: '錯誤', detail: result.msg });
                 }
                 this.isBlocked = false;
             },
             error => {
                 console.log( error );
-                this.messageService.add( { severity: 'error', summary: '錯誤', detail: error }) ;
+                this.messageService.add({ severity: 'error', summary: '錯誤', detail: error });
                 this.isBlocked = false;
             }
         );

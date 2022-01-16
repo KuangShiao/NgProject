@@ -17,6 +17,7 @@ import { SpinnerModule } from 'primeng/spinner';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { TooltipModule } from 'primeng/tooltip';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -26,6 +27,7 @@ import { HomeSidebarComponent } from './home/home-sidebar/home-sidebar.component
 import { HomeComponent } from './home/home.component';
 // home layout template
 import { StockInfoQueryComponent } from './home/home-content-template/stock-info-query/stock-info-query.component';
+import { StockAiChooseComponent } from './home/home-content-template/stock-ai-choose/stock-ai-choose.component';
 import { StockInventoryIncomeComponent } from './home/home-content-template/stock-inventory-income/stock-inventory-income.component';
 
 import { MessageService } from 'primeng/api';
@@ -39,6 +41,7 @@ import { MessageService } from 'primeng/api';
     HomeSidebarComponent,
     HomeComponent,
     StockInfoQueryComponent,
+    StockAiChooseComponent,
     StockInventoryIncomeComponent
   ],
   imports: [
@@ -59,7 +62,8 @@ import { MessageService } from 'primeng/api';
     SpinnerModule,
     KeyFilterModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    TooltipModule
   ],
   providers: [
     MessageService

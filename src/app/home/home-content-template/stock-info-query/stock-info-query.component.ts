@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/utils/api.service';
 import { MessageService, SelectItem } from 'primeng/api';
+import { StockInfo } from 'src/app/module/StockInfo';
 
 @Component({
     selector: 'stock-info-query',
@@ -14,7 +15,7 @@ export class StockInfoQueryComponent implements OnInit {
     condition = { stockNoName: '', industryNo: '' };
     industryOpts: SelectItem[] = [];
 
-    stockList = [];
+    stockList: StockInfo[] = [];
 
     constructor( private service: ApiService, private messageService: MessageService ) {
         

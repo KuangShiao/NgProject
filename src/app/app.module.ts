@@ -18,6 +18,7 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { TooltipModule } from 'primeng/tooltip';
+import { FileUploadModule } from 'primeng/fileupload';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -29,6 +30,7 @@ import { HomeComponent } from './home/home.component';
 import { StockInfoQueryComponent } from './home/home-content-template/stock-info-query/stock-info-query.component';
 import { StockAiChooseComponent } from './home/home-content-template/stock-ai-choose/stock-ai-choose.component';
 import { StockInventoryIncomeComponent } from './home/home-content-template/stock-inventory-income/stock-inventory-income.component';
+import { UserProfileComponent } from './home/home-content-template/user-profile/user-profile.component';
 
 import { MessageService } from 'primeng/api';
 
@@ -42,7 +44,8 @@ import { MessageService } from 'primeng/api';
     HomeComponent,
     StockInfoQueryComponent,
     StockAiChooseComponent,
-    StockInventoryIncomeComponent
+    StockInventoryIncomeComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { MessageService } from 'primeng/api';
     KeyFilterModule,
     MessagesModule,
     MessageModule,
-    TooltipModule
+    TooltipModule,
+    FileUploadModule
   ],
   providers: [
     MessageService

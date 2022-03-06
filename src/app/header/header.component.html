@@ -1,16 +1,35 @@
 <div class="topbar clearfix">
 
-    <a *ngIf="getUserId()" (click)="showTopbarMenu()">
+    <a *ngIf="getUserId()" (click)="switchTopbarMenu()">
         <i class="topbar-menu-button pi pi-bars"></i>
     </a>
 
     <ul *ngIf="getUserId()"
         [ngClass]="topBarMenuVisible ? 'topbar-menu-box fadeInDown animated' : 'topbar-menu'">
-        <li class="topbar-li">
-            <a href="#">
-                <i class="topbar-icon fa fa-sign-out"></i>
-                <span class="topbar-item-name">登出</span>
+        <li class="profile-li" (click)="switchProfileMenu()">
+            <a class="profile-a">
+                <div class="profile-image-div">
+                    <img *ngIf="!getUserPhoto()" class="profile-image" src="https://as2.ftcdn.net/v2/jpg/02/15/84/43/1000_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg">
+                    <img *ngIf="getUserPhoto()"class="profile-image" [src]="getUserPhoto()">
+                </div>
+                <div class="profile-info">
+                    <span class="profile-name">{{getUserName()}}</span>
+                </div>
             </a>
+            <ul *ngIf="profileMenuVisible" [ngClass]="topBarMenuVisible ? 'profile-menu-box' : 'profile-menu-box fadeInDown animated'">
+                <li class="profile-menu-li" (click)="showUserProfile()">
+                    <a>
+                        <i class="profile-menu-icon fa fa-user"></i>
+                        <span class="profile-menu-item-name">我的帳戶</span>
+                    </a>
+                </li>
+                <li class="profile-menu-li" (click)="logout()">
+                    <a>
+                        <i class="profile-menu-icon fa fa-sign-out"></i>
+                        <span class="profile-menu-item-name">登出</span>
+                    </a>
+                </li>
+            </ul>
         </li>
         <li class="topbar-li">
             <a>
@@ -20,3 +39,8 @@
         </li>
     </ul>
 </div>
+
+<p-dialog header="我的帳戶" [(visible)]="userProfileDialog" appendTo="body" [modal]="true" [responsive]="true" [style]="{ width: '500px' }" 
+             [contentStyle]="{'min-height':'420px'}" [positionTop]="60">
+    <user-profile *ngIf="userProfileDialog"></user-profile>
+</p-dialog>

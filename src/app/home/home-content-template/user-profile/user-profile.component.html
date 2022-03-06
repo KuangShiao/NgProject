@@ -1,0 +1,22 @@
+<p-blockUI [blocked]="isBlocked"><i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw" style="position:absolute;top:48.5%;left:48.5%"></i></p-blockUI>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+<div class="p-grid p-justify-center p-align-center">
+    <div style="width: 100%; padding: 50px;"> <!--border: solid 1px antiquewhite; box-shadow: 0 4px 5px 0 rgb(0 0 0 / 20%); -->
+        <div class="ui-grid-row" style="text-align:center; margin-bottom: 20px;">
+            <img *ngIf="!getUserPhoto()" class="profile-photo" src="https://as2.ftcdn.net/v2/jpg/02/15/84/43/1000_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg">
+            <img *ngIf="getUserPhoto()" class="profile-photo" [src]="getUserPhoto()">
+            <p-fileUpload mode="basic" name="photoImg" url="{{ service.serverUrl }}/uploadUserPhoto" accept="image/*" chooseLabel="編輯照片"
+                          (onBeforeUpload)="onBeforeUploadPhoto($event)" (onUpload)="onUploadPhoto($event)"></p-fileUpload>
+        </div>
+        <p-table [value]="userProfile">
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td style="display: block; border: 0 !important;"><span style="display: inline-block; width: 25%;">帳號 </span>{{ user.account }}</td>
+                    <td style="display: block; border: 0 !important;"><span style="display: inline-block; width: 25%;">名稱 </span>{{ user.name }}</td>
+                    <td style="display: block; border: 0 !important;"><span style="display: inline-block; width: 25%;">點數 </span>{{ user.cash |  currency : '' : 'symbol' : '1.0-0' }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

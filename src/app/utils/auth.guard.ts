@@ -7,13 +7,13 @@ import { Constants } from './constants';
 })
 export class AuthGuard implements CanActivate {
 
-    constructor(private router: Router) {
+    constructor( private router: Router ) {
 
     }
 
-    canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    canActivate( next: ActivatedRouteSnapshot, state: RouterStateSnapshot ): boolean {
 
-        if (localStorage.getItem(Constants.LocalStorageKey.LOCAL_STORAGE_USER_ID_KEY)) {
+        if ( localStorage.getItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_ID_KEY ) ) {
             return true;
         }
         else {

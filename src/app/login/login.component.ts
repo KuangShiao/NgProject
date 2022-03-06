@@ -25,19 +25,14 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log( this.user );
         this.isBlocked = true;
         this.service.callApiService( 'verifyUser', this.user ).subscribe(
             result => {
-                console.log( result );
                 if ( result.check ) {
-                    if ( result.data ) {
-                        localStorage.setItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_ID_KEY, this.user.acc );
-                        this.router.navigate ( ['/home'] );
-                    }
-                    else {
-                        this.messageService.add({ severity: 'warn', summary: '帳密錯誤', detail: '請確認帳號與密碼是否正確' });
-                    }
+                    localStorage.setItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_ID_KEY, this.user.acc );
+                    localStorage.setItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_NAME_KEY, result.data.name );
+                    localStorage.setItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_PHOTO_KEY, result.data.personalPhoto );
+                    this.router.navigate ( ['/home'] );
                 }
                 else {
                     console.log( result.msg );

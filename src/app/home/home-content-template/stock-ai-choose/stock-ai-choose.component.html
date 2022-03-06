@@ -1,6 +1,6 @@
 <!-- 智慧選股 -->
 <p-blockUI [blocked]="isBlocked"><i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw" style="position:absolute;top:48.5%;left:48.5%"></i></p-blockUI>
-<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<p-toast [style]="{marginTop: '80px'}" [baseZIndex]="1111111"></p-toast>
 
 <div class="p-grid">
     <div style="margin: 10px">
@@ -34,8 +34,13 @@
 </p-table>
 
 <p-dialog header="個股明細" [(visible)]="displayDialog" appendTo="body" [modal]="true" [responsive]="true" [style]="{ width: '650px', minWidth: '400px' }" [baseZIndex]="10000"> <!-- [contentStyle]="{'min-height':'225px'}" -->
-
-    <p-table [value]="StockPriceList">
+    
+    <div class="p-grid">
+        <div style="margin: 10px">
+            <p-button icon="fa fa-hand-o-down" label="下單" (click)="displayOrderDialog()"></p-button>
+        </div>
+    </div>
+    <p-table [value]="stockPriceList">
         <ng-template pTemplate="header">
             <tr>
                 <th>日期</th>
@@ -58,4 +63,21 @@
         </ng-template>
     </p-table>
 
+</p-dialog>
+
+<p-dialog header="" [(visible)]="orderDialog" appendTo="body" [modal]="true" [responsive]="true" [style]="{ width: '350px', minWidth: '200px' }" [baseZIndex]="10000"> <!-- [contentStyle]="{'min-height':'225px'}" -->
+    <p-table [value]="orderTbl">
+        <ng-template pTemplate="body" let-stock>
+            <tr>
+                <td style="display: block; border: 0 !important;"><span style="display: inline-block; width: 50%;">目前股價 </span>{{stock.closePrice}}</td>
+                <td style="display: block; border: 0 !important;"><span style="display: inline-block; width: 50%;">股票名稱/代號 </span>{{stock.stockName}} / {{stock.stockNo}}</td>
+                <td style="display: block; border: 0 !important;"><span style="display: inline-block; width: 50%;">張數 </span><p-spinner size="5" [(ngModel)]="stock.stockNum" [min]="1" [max]="499"></p-spinner></td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <p-footer>
+        <p-button icon="fa fa-hand-o-down" label="下單" (click)="orderStock()"></p-button>
+        <p-button styleClass="ui-button-secondary" icon="fa fa-times" label="取消" (click)="orderDialog=false"></p-button>
+    </p-footer>
 </p-dialog>

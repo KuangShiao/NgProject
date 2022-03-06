@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
                     }
                 }
                 else {
-                    console.log(result.msg);
+                    console.log( result.msg );
                     this.messageService.add({ severity: 'error', summary: '錯誤', detail: result.msg });
                     this.isBlocked = false;
                 }

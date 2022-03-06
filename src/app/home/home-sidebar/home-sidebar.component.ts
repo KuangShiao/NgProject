@@ -67,7 +67,7 @@ export class HomeSidebarComponent implements OnInit {
         }
     }
 
-    setMainContent(s: string) {
+    setMainContent( s: string ) {
         console.log( 'setMainContent: ', s );
         this.mainContent = s;
         this.sidebarEvent();     // close sidebar

@@ -67,6 +67,66 @@
     background-color: gray !important;
 } */
 
+.profile-li {
+    float: right;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.profile-image-div {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.profile-image {
+    width: 30px;
+    height: 30px;
+}
+.profile-info {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100px;
+    margin-top: -5px;
+}
+.profile-name {
+    font-size: 15px;
+    display: block;
+    box-sizing: border-box;
+    color: white;
+}
+.profile-menu-box {
+    position: absolute;
+    top:35px;
+    right: 5px;
+    background-color: #efefef;
+    width: 190px;
+    float: right;
+    margin: 15px 15px 0 0;
+    list-style-type: none;
+}
+.profile-menu-li {
+    float: none;
+    margin-left: -40px;
+    padding-left: 15px;
+    width: 126.5%;
+}
+.profile-menu-li:hover {
+    background-color: #e5e5e5;
+}
+.profile-menu-icon {
+    width: 30px;
+    font-size: 23px;
+    vertical-align: middle;
+    text-shadow: 0 0 3px black;
+    color: white;
+}
+.profile-menu-item-name {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+    font-size: 14px;
+}
+
 @media screen and (max-width: 1080px) {
     .topbar-menu-button {
         display: block;
@@ -82,8 +142,9 @@
     .topbar-li {
         float: none;
         margin-left: -40px;
-        width: 126.5%;
         padding-left: 15px;
+        width: 126.5%;
+        display:inline-block;
     }
     .topbar-li:hover {
         background-color: #e5e5e5;
@@ -97,5 +158,58 @@
         vertical-align: middle;
         margin: 10px;
         font-size: 14px;
+        padding-left: 25px;
+    }
+
+    .profile-li {
+        width: 126.5%;
+    }
+    .profile-a {
+        float: none;
+        padding-left: 15px;
+        width: 100%;
+        display:inline-block;
+    }
+    .profile-a:hover {
+        background-color: #e5e5e5;
+    }
+    .profile-image-div {
+        margin-right: 0;
+        width: 30px;
+    }
+    .profile-image {
+        width: 23px;
+        height: 23px;
+    }
+    .profile-info { 
+        margin-top: 0;
+    }
+    .profile-name {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 10px;
+        font-size: 14px;
+        color: black;
+        padding-left: 25px;
+        width: 100%;
+    }
+    .profile-menu-box {
+        position: static;
+        background-color: inherit;
+        margin: 0;
+        padding: 0 0 0 60px;
+    }
+    .profile-menu-li {
+        margin-left: -35px;
+        padding-left: 25px;
+    }
+    .profile-menu-li:hover {
+        background-color: #e5e5e5;
+    }
+    .profile-menu-icon {
+        font-size: 15px;
+    }
+    .profile-menu-item-name {
+        font-size: 12px;
     }
 }

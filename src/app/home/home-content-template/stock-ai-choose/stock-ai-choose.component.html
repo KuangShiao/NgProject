@@ -1,6 +1,5 @@
 <!-- 智慧選股 -->
 <p-blockUI [blocked]="isBlocked"><i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw" style="position:absolute;top:48.5%;left:48.5%"></i></p-blockUI>
-<p-toast [style]="{marginTop: '80px'}" [baseZIndex]="1111111"></p-toast>
 
 <div class="p-grid">
     <div style="margin: 10px">
@@ -33,7 +32,7 @@
     </ng-template>
 </p-table>
 
-<p-dialog header="個股明細" [(visible)]="displayDialog" appendTo="body" [modal]="true" [responsive]="true" [style]="{ width: '650px', minWidth: '400px' }" [baseZIndex]="10000"> <!-- [contentStyle]="{'min-height':'225px'}" -->
+<p-dialog header="個股明細" [(visible)]="displayDialog" appendTo="body" [modal]="true" [responsive]="true" [style]="{ width: '650px', minWidth: '400px' }"> <!-- [contentStyle]="{'min-height':'225px'}" -->
     
     <div class="p-grid">
         <div style="margin: 10px">
@@ -65,7 +64,7 @@
 
 </p-dialog>
 
-<p-dialog header="" [(visible)]="orderDialog" appendTo="body" [modal]="true" [responsive]="true" [style]="{ width: '350px', minWidth: '200px' }" [baseZIndex]="10000"> <!-- [contentStyle]="{'min-height':'225px'}" -->
+<p-dialog header="" [(visible)]="orderDialog" appendTo="body" [modal]="true" [responsive]="true" [style]="{ width: '350px', minWidth: '200px' }"> <!-- [contentStyle]="{'min-height':'225px'}" -->
     <p-table [value]="orderTbl">
         <ng-template pTemplate="body" let-stock>
             <tr>

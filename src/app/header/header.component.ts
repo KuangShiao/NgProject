@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, Input, Output, EventEmitter } from '@a
 import { Constants } from '../utils/constants';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { ApiService } from 'src/app/utils/api.service';
 
 @Component({
     selector: 'header',
@@ -29,10 +30,15 @@ export class HeaderComponent implements OnInit {
 
     userProfileDialog = false;
 
-    constructor( private router: Router, private sanitizer: DomSanitizer ) {
+    personalPhoto = null;
+
+    constructor( private service: ApiService, private router: Router, private sanitizer: DomSanitizer ) {
     }
 
     ngOnInit() {
+        if ( this.getUserId() ) {
+            this.findUserProfile();
+        }
     }
 
     switchTopbarMenu() {
@@ -56,12 +62,24 @@ export class HeaderComponent implements OnInit {
     }
 
     getUserPhoto(): SafeUrl {
-        const personalPhoto = localStorage.getItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_PHOTO_KEY ) ;
-        if ( !personalPhoto || personalPhoto === 'null' ) {
+        if ( !this.personalPhoto ) {
             return null;
         }
-        const objectURL = 'data:image/png;base64,' + personalPhoto;
+        const objectURL = 'data:image/png;base64,' + this.personalPhoto;
         return this.sanitizer.bypassSecurityTrustUrl( objectURL );
+    }
+
+    async findUserProfile() {
+        const paramObj = {
+            acc: localStorage.getItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_ID_KEY )
+        };
+        await this.service.postApiService( 'findUserProfile', paramObj )
+                          .then(( data: any ) => {
+                                this.personalPhoto = data.personalPhoto;
+                          })
+                          .catch(( error ) => {
+                                console.log( 'error occur:' , error );
+                          });
     }
 
     setMainContent( s: string ) {

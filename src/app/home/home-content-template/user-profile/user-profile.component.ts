@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/utils/api.service';
 import { MessageService } from 'primeng/api';
 import { Constants } from 'src/app/utils/constants';
@@ -12,6 +12,8 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 })
 export class UserProfileComponent implements OnInit {
 
+    @Output() refreshProfile = new EventEmitter();
+
     isBlocked = false;
 
     userProfile = [];
@@ -24,53 +26,41 @@ export class UserProfileComponent implements OnInit {
     }
 
     getUserPhoto(): SafeUrl {
-        const personalPhoto = localStorage.getItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_PHOTO_KEY ) ;
-        if ( !personalPhoto || personalPhoto === 'null' ) {
+        if ( !this.userProfile || this.userProfile.length === 0 ) {
             return null;
         }
+        const personalPhoto = this.userProfile[0].personalPhoto;
         const objectURL = 'data:image/png;base64,' + personalPhoto;
         return this.sanitizer.bypassSecurityTrustUrl( objectURL );
     }
 
-    findUserProfile() {
+    async findUserProfile() {
         const paramObj = {
             acc: localStorage.getItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_ID_KEY )
         };
         this.isBlocked = true;
         this.userProfile = [];
-        this.service.callApiService( 'findUserProfile', paramObj ).subscribe(
-            result => {
-                if ( result.check ) {
-                    this.userProfile.push( result.data );
-                    // let objectURL = 'data:image/png;base64,' + this.userProfile[0].personalPhoto;
-                    // this.personalPhoto = this.sanitizer.bypassSecurityTrustUrl( objectURL );
-                    // upload header profile photo
-                    localStorage.setItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_PHOTO_KEY, this.userProfile[0].personalPhoto );
-                }
-                else {
-                    console.log( result.msg );
-                    this.messageService.add({ severity: 'error', summary: '錯誤', detail: result.msg });
-                }
-                this.isBlocked = false;
-            },
-            error => {
-                console.log( error );
-                this.messageService.add({ severity: 'error', summary: '錯誤', detail: error });
-                this.isBlocked = false;
-            }
-        );
+        await this.service.postApiService( 'findUserProfile', paramObj )
+                          .then(( data: any ) => {
+                                this.userProfile.push( data );
+                          })
+                          .catch(( error ) => {
+                                this.messageService.add({ severity: 'error', summary: '錯誤', detail: error });
+                          });
+        this.isBlocked = false;
     }
 
     onBeforeUploadPhoto( event: any ) {
         this.isBlocked = true;
-        event.formData.append( "acc", localStorage.getItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_ID_KEY ) );
+        event.formData.append( 'acc', localStorage.getItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_ID_KEY ) );
     }
 
-    onUploadPhoto( event: any ) {
-        console.log( event );
+    async onUploadPhoto( event: any ) {
         if ( event.originalEvent.body.check ) {
             this.messageService.add({ severity: 'info', detail: '更改成功' });
-            this.findUserProfile();
+            await this.findUserProfile();
+            // refresh header profile
+            this.refreshProfile.emit();
         }
         else {
             this.messageService.add({ severity: 'error', summary: '錯誤', detail: event.originalEvent.body.msg });

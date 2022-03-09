@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
                 if ( result.check ) {
                     localStorage.setItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_ID_KEY, this.user.acc );
                     localStorage.setItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_NAME_KEY, result.data.name );
-                    localStorage.setItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_PHOTO_KEY, result.data.personalPhoto );
+                    // localStorage.setItem( Constants.LocalStorageKey.LOCAL_STORAGE_USER_PHOTO_KEY, result.data.personalPhoto );
                     this.router.navigate ( ['/home'] );
                 }
                 else {

@@ -42,5 +42,5 @@
 
 <p-dialog header="我的帳戶" [(visible)]="userProfileDialog" appendTo="body" [modal]="true" [responsive]="true" [style]="{ width: '500px' }" 
              [contentStyle]="{'min-height':'420px'}" [positionTop]="60">
-    <user-profile *ngIf="userProfileDialog"></user-profile>
+    <user-profile *ngIf="userProfileDialog" (refreshProfile)="findUserProfile()"></user-profile>
 </p-dialog>
